@@ -1,8 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
-const index = require('./views/index');
-const main = require('./views/main');
 const layout = require('./views/layout');
+const wikiRouter = require('./routes/wiki');
+const userRouter = require('./routes/user');
 
 const models = require('./models');
 
@@ -17,6 +17,8 @@ app.use(express.static(__dirname + '/public'));
 models.db.authenticate().then(() => {
   console.log('connected to the database');
 });
+
+app.use('/wiki', wikiRouter);
 
 app.get('/', (req, res, next) => {
   const page = layout(' ');
