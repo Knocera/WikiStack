@@ -1,0 +1,30 @@
+{
+  "name": "wikistack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "html-template-tag": "^3.0.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.8.2",
+    "sequelize": "^4.43.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "start": "nodemon /Users/kevinlam/Fullstack Academy/1902-NY-Immersive/Week 2/wikistack/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeViiNJAi/WikiStack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeViiNJAi/WikiStack/issues"
+  },
+  "homepage": "https://github.com/KeViiNJAi/WikiStack#readme"
+}
