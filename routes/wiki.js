@@ -1,11 +1,14 @@
 const express = require('express');
-const { addPage } = require('../views/addPage');
+const addPage = require('../views/addPage');
+const layout = require('../views/layout');
+const { Page } = require('../models');
 
 const wikiRouter = express.Router();
 
 wikiRouter.get('/', async (req, res, next) => {
   try {
-    res.send('THIS IS THE GET ROUTER /');
+    const page = layout(' ');
+    res.send(page);
     console.log('wiki get /');
   } catch (error) {
     next(error);
@@ -14,8 +17,18 @@ wikiRouter.get('/', async (req, res, next) => {
 
 wikiRouter.post('/', async (req, res, next) => {
   try {
-    res.send('THIS IS THE POST ROUTER /');
-    console.log('wiki post /');
+    const page = new Page({
+      title: req.body.title,
+      content: req.body.content,
+    });
+    console.log(page.title);
+    console.log(page.content);
+
+    // make sure we only redirect *after* our save is complete!
+    // note: `.save` returns a promise.
+
+    page.save();
+    res.redirect('/');
   } catch (error) {
     next(error);
   }

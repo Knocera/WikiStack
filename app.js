@@ -21,8 +21,7 @@ models.db.authenticate().then(() => {
 app.use('/wiki', wikiRouter);
 
 app.get('/', (req, res, next) => {
-  const page = layout(' ');
-  res.send(page);
+  res.redirect('/wiki');
 });
 const PORT = 3000;
 const initSync = async () => {
